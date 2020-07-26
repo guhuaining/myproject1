@@ -6,5 +6,5 @@ Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
-//进行message的全局挂载,通过prototype原型对象使其他组件可以通过this进行访问
+//进行Message的全局挂载,通过prototype原型对象使其他组件可以通过this进行访问
 Vue.prototype.$message = Message

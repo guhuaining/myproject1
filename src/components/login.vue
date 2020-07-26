@@ -66,7 +66,7 @@ export default {
             //利用async&await处理promise对象，将数据参数通过login路径传到对应的后台api
             const {data: res} = await this.$http.post('login', this.LoginForm);
             console.log(res);
-            //通过查询res中的状态码，返回登录状态
+            //通过查询res中的状态码，利用message的对应方法返回登录状态
             if(res.meta.status!==200) return this.$message.error('登录失败');
             this.$message.success('登录成功');
             //1.将登录成功之后的Token保存到客户端的sessionstorge中
