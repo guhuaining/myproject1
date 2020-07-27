@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import login from '../components/login.vue'
 import Home from '../components/Home.vue'
+import Welcome from './components/Welcome.vue'
+import Users from './components/user/Users.vue'
 
 Vue.use(VueRouter)
 
@@ -9,7 +11,17 @@ const router = new VueRouter({
   routes: [
     { path: '/', redirect: '/login' },
     { path: '/login', name: 'login', componet: login },
-    { path: '/Home', name: 'Home', componet: Home }
+    { path: '/Home', name: 'Home', componet: Home },
+    //由于是在首页的内容区嵌套显示欢迎组件，故需要作为home的子路由
+    {
+      path: '/home',
+      component: Home,
+      redirect: '/welcome',
+      children: [
+        { path: '/welcome', component: Welcome },
+        { path: '/users', component: Users }
+      ]
+    }
   ]
 })
 // 挂载路由导航守卫
