@@ -125,5 +125,9 @@ export default {
         padding: 0 20px;
         box-sizing: border-box;
     }
+    .btns {
+        display: flex;
+        justify-content: flex-end;
+}
 }
 </style>

@@ -55,7 +55,9 @@
       </el-table>
 
       <!-- 分页区域 -->
-      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="queryInfo.pagenum" :page-sizes="[1, 2, 5, 10]" :page-size="queryInfo.pagesize" layout="total, sizes, prev, pager, next, jumper" :total="total">
+      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="queryInfo.pagenum" :page-sizes="[1, 2, 5, 10]" 
+      :page-size="queryInfo.pagesize" layout="total, sizes, prev, pager, next, jumper" :total="total">
+      <!-- layout控制分页组件中显示什么部分的内容 -->
       </el-pagination>
     </el-card>
 
@@ -186,6 +188,7 @@ export default {
     handleSizeChange(newSize) {
       // console.log(newSize)
       this.queryInfo.pagesize = newSize
+      // 随着pagesize的改变，通过getUserList()改变页面数据
       this.getUserList()
     },
     // 监听 页码值 改变的事件
